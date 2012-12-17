@@ -34,6 +34,7 @@ module ROTP
         bytes[2] = ((quints[3] & 15) << 4) + (quints[4] >> 1)
         return bytes if length < 6
         bytes[3] = ((quints[4] & 1) << 7) + (quints[5] << 2) + (quints[6] >> 3)
+        return bytes if length == 7
         bytes[4] = ((quints[6] & 7) << 5) + quints[7]
         bytes
       end
